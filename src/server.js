@@ -19,6 +19,10 @@ app.get("/", welcomeHandler);
 function welcomeHandler(req, res) {
   res.status(200).send("hello home");
 }
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  next();
+});
 app.use("*", notFoundHandler);
 app.use(errorHandler);
 app.use(cors());
