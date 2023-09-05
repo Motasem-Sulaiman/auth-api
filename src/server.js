@@ -12,8 +12,9 @@ const logger = require("./middleware/logger.js");
 const v1Routes = require("./routes/v1.js");
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Headers', 'Content-Type'); // Allow the Content-Type header
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Add other HTTP methods if needed
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization'); // Allow the Content-Type header
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); 
+  // Add other HTTP methods if needed
   next();
 });
 app.use(express.json());
