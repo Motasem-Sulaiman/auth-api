@@ -10,6 +10,10 @@ const notFoundHandler = require("./error-handlers/404.js");
 const errorHandler = require("./error-handlers/500.js");
 const logger = require("./middleware/logger.js");
 const v1Routes = require("./routes/v1.js");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  next();
+});
 app.use(express.json());
 app.use(logger);
 app.use("/api/v1", v1Routes);
@@ -19,6 +23,7 @@ app.get("/", welcomeHandler);
 function welcomeHandler(req, res) {
   res.status(200).send("hello home");
 }
+
 app.use("*", notFoundHandler);
 app.use(errorHandler);
 app.use(cors());
