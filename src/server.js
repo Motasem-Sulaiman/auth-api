@@ -11,7 +11,7 @@ const errorHandler = require("./error-handlers/500.js");
 const logger = require("./middleware/logger.js");
 const v1Routes = require("./routes/v1.js");
 app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:5173', 'https://vvlvtj-5173.csb.app', 'https://cosmic-duckanoo-ed9e8c.netlify.app/', 'https://45gzpz-5173.csb.app/'];
+  const allowedOrigins = ['http://localhost:5173', 'https://vvlvtj-5173.csb.app', 'https://cosmic-duckanoo-ed9e8c.netlify.app', 'https://45gzpz-5173.csb.app'];
   const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
